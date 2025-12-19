@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pakistan Auto Detailing | Elite Studio Lahore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        canvas { position: fixed; top: 0; left: 0; z-index: -1; pointer-events: none; }
+        .glass { background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.95));
+        }
+        /* Custom Font or Styling for the Logo */
+        .logo-font { font-family: 'Arial Black', sans-serif; }
+    </style>
+</head>
+<body class="bg-black text-white font-sans overflow-x-hidden">
+
+    <nav class="flex justify-between items-center p-5 fixed w-full z-50 glass">
+        <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center font-black italic text-white text-2xl shadow-xl shadow-red-600/30 logo-font">PAD</div>
+            <div class="leading-none">
+                <span class="block text-sm font-black uppercase tracking-widest">Pakistan Auto</span>
+                <span class="block text-[10px] text-zinc-500 uppercase tracking-[0.2em]">Detailing Studio</span>
+            </div>
+        </div>
+        
+        <div class="hidden md:flex space-x-8 font-bold uppercase text-[10px] tracking-[0.3em]">
+            <a href="#about" class="hover:text-red-500 transition-all">About Us</a>
+            <a href="services.html" class="hover:text-red-500 transition-all">Services</a>
+            <a href="booking.html" class="hover:text-red-500 transition-all">Book Now</a>
+        </div>
+        
+        <a href="booking.html" class="bg-red-600 px-6 py-2.5 rounded-full text-[10px] font-black uppercase hover:bg-white hover:text-black transition-all">Appointment</a>
+    </nav>
+
+    <section class="relative h-screen flex flex-col justify-center px-6 md:px-20 hero-gradient">
+        <div class="max-w-4xl z-10">
+            <h2 class="text-red-600 font-black uppercase tracking-[0.5em] text-xs mb-5">Premier Detailing in Lahore</h2>
+            <h1 class="text-6xl md:text-9xl font-black mb-8 uppercase tracking-tighter leading-[0.8]">
+                ELITE <br> <span class="text-zinc-700">STUDIO.</span>
+            </h1>
+            
+            <div class="flex flex-wrap gap-5 mt-10">
+                <a href="#about" class="bg-white text-black px-12 py-5 rounded-full font-black hover:bg-red-600 hover:text-white transition-all uppercase text-xs tracking-widest">
+                    About
+                </a>
+                <a href="booking.html" class="bg-red-600 text-white px-12 py-5 rounded-full font-black hover:bg-zinc-800 transition-all uppercase text-xs tracking-widest shadow-2xl shadow-red-600/40">
+                    Book Service
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-40 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1517524008436-bbdb53c57d29?auto=format&fit=crop&q=80&w=800" class="rounded-[2rem] border border-zinc-800 shadow-2xl" alt="Lahore Studio">
+                <div class="absolute -bottom-6 -left-6 bg-red-600 p-8 rounded-2xl">
+                    <p class="text-4xl font-black">10Y</p>
+                    <p class="text-[10px] uppercase font-bold">Experience</p>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <h3 class="text-red-600 font-bold uppercase tracking-widest text-xs">Since 2014</h3>
+                <h2 class="text-5xl font-black uppercase tracking-tighter">Luxury is in the <span class="text-red-600">Details.</span></h2>
+                <p class="text-zinc-400 text-lg leading-relaxed">
+                    Pakistan Auto Detailing (PAD) is Lahore's premier destination for high-end paint protection. Located on Maulana Shaukat Ali Road, we've spent a decade perfecting the factory-fresh look for over 3,000 vehicles.
+                </p>
+                <div class="flex gap-10 pt-6">
+                    <div>
+                        <p class="text-3xl font-black">3,000+</p>
+                        <p class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Cars Protected</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-black">100%</p>
+                        <p class="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-zinc-900">
+        <p class="text-zinc-600 text-[10px] uppercase tracking-[0.5em]">© 2024 Pakistan Auto Detailing | Lahore</p>
+    </footer>
+
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // CREATE A 3D WIREFRAME GEOMETRY (The "Crystal")
+        const geometry = new THREE.IcosahedronGeometry(1.5, 0); // Solid shape
+        const wireframe = new THREE.WireframeGeometry(geometry); // Turn it into lines
+        const lineMaterial = new THREE.LineBasicMaterial({ 
+            color: 0xef4444, // Red color
+            transparent: true, 
+            opacity: 0.3 
+        });
+        const mesh = new THREE.LineSegments(wireframe, lineMaterial);
+        scene.add(mesh);
+
+        // SECONDARY FLOATING SHAPE
+        const geometry2 = new THREE.TorusGeometry(3, 0.5, 16, 100);
+        const wireframe2 = new THREE.WireframeGeometry(geometry2);
+        const mesh2 = new THREE.LineSegments(wireframe2, lineMaterial);
+        scene.add(mesh2);
+
+        camera.position.z = 5;
+
+        let mouseX = 0; let mouseY = 0;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) - 0.5;
+            mouseY = (e.clientY / window.innerHeight) - 0.5;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            // Subtle Auto-Rotation
+            mesh.rotation.y += 0.005;
+            mesh.rotation.x += 0.002;
+            
+            mesh2.rotation.z += 0.001;
+            mesh2.rotation.y -= 0.002;
+
+            // Mouse Interaction (Tilt Effect)
+            mesh.rotation.x += (mouseY * 0.1);
+            mesh.rotation.y += (mouseX * 0.1);
+            
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
