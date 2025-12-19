@@ -3,17 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You | Pakistan Auto Detailing</title>
+    <title>Booking Confirmed | Pakistan Auto Detailing</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body { background-color: #000; color: #fff; margin: 0; overflow: hidden; font-family: sans-serif; }
+        canvas { position: fixed; top: 0; left: 0; z-index: 1; }
+        .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+            background: radial-gradient(circle at center, rgba(239, 68, 68, 0.05) 0%, transparent 70%);
+        }
+        .glass-box {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 3rem;
+            max-width: 500px;
+        }
+    </style>
 </head>
-<body class="bg-black text-white font-sans h-screen flex items-center justify-center text-center">
-    <div class="p-10 border border-zinc-800 rounded-[3rem] bg-zinc-900/50 backdrop-blur-xl">
-        <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-red-600/40">
-            <i class="fas fa-check text-3xl text-white"></i>
+<body>
+
+    <div class="content">
+        <div class="glass-box">
+            <div class="mb-6">
+                <div class="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center mx-auto shadow-[0_0_30px_rgba(239,68,68,0.5)]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                    </svg>
+                </div>
+            </div>
+            
+            <h1 class="text-4xl font-black uppercase tracking-tighter mb-4">Request <span class="text-red-600">Received</span></h1>
+            <p class="text-zinc-400 text-sm leading-relaxed mb-8 uppercase tracking-widest font-bold">
+                Our specialists will contact you within 24 hours to confirm your elite detailing session.
+            </p>
+
+            <a href="index.html" class="inline-block bg-white text-black px-10 py-4 rounded-xl font-black uppercase text-xs tracking-widest hover:bg-red-600 hover:text-white transition-all duration-500">
+                Return to Home
+            </a>
         </div>
-        <h1 class="text-4xl font-black uppercase mb-4 tracking-tighter">Request Received!</h1>
-        <p class="text-zinc-400 mb-8 max-w-xs mx-auto">Our team in Lahore will review your car details and contact you shortly.</p>
-        <a href="index.html" class="bg-white text-black px-8 py-3 rounded-full font-black uppercase text-[10px] tracking-widest hover:bg-red-600 hover:text-white transition-all">Back to Home</a>
+        
+        <p class="mt-10 text-[10px] text-zinc-600 uppercase tracking-[0.5em] font-bold">
+            Pakistan Auto Detailing • Lahore
+        </p>
     </div>
+
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Create a Diamond-like shape (Octahedron)
+        const geometry = new THREE.OctahedronGeometry(2, 0);
+        const material = new THREE.MeshPhongMaterial({ 
+            color: 0xef4444, 
+            wireframe: true,
+            transparent: true,
+            opacity: 0.3
+        });
+        const diamond = new THREE.Mesh(geometry, material);
+        scene.add(diamond);
+
+        // Add light to make it look premium
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+        scene.add(new THREE.AmbientLight(0x404040));
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            diamond.rotation.y += 0.01;
+            diamond.rotation.x += 0.005;
+            renderer.render(scene, camera);
+        }
+        
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
+    </script>
 </body>
 </html>
