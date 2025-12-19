@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Appointment | Pakistan Auto Detailing</title>
+    <title>Book Your Session | Pakistan Auto Detailing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         canvas { position: fixed; top: 0; left: 0; z-index: 1; pointer-events: none; }
         .glass-nav { background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); z-index: 100; }
-        .booking-card { background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); position: relative; z-index: 10; }
-        input, select, textarea { 
-            background: rgba(255, 255, 255, 0.03) !important; 
+        .booking-card { background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255, 0, 0, 0.1); position: relative; z-index: 10; }
+        input, select { 
+            background: rgba(255, 255, 255, 0.05) !important; 
             border: 1px solid rgba(255, 255, 255, 0.1) !important; 
             color: white !important;
         }
-        input:focus, select:focus { border-color: #ef4444 !important; outline: none; }
+        input:focus, select:focus { border-color: #ef4444 !important; outline: none; box-shadow: 0 0 15px rgba(239, 68, 68, 0.2); }
     </style>
 </head>
 <body class="bg-black text-white font-sans overflow-x-hidden">
@@ -24,7 +24,7 @@
     <nav class="flex justify-between items-center p-5 fixed w-full glass-nav">
         <a href="index.html" class="flex items-center gap-3">
             <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center font-black italic text-white text-xl">PAD</div>
-            <span class="text-xs font-bold uppercase tracking-widest">Back to Home</span>
+            <span class="text-xs font-bold uppercase tracking-widest">Home</span>
         </a>
     </nav>
 
@@ -32,40 +32,42 @@
         <div class="booking-card w-full max-w-2xl p-8 md:p-12 rounded-[3rem] shadow-2xl">
             
             <div class="text-center mb-10">
-                <h2 class="text-red-600 font-black uppercase tracking-[0.4em] text-[10px] mb-2">Reservation</h2>
-                <h1 class="text-3xl md:text-4xl font-black uppercase tracking-tighter">Secure Your <span class="text-zinc-600">Slot</span></h1>
+                <h2 class="text-red-600 font-black uppercase tracking-[0.4em] text-[10px] mb-2">Luxury Detailing</h2>
+                <h1 class="text-3xl md:text-4xl font-black uppercase tracking-tighter">Request an <span class="text-zinc-600">Appointment</span></h1>
             </div>
 
-            <form action="https://formspree.io/f/mlgrdngz" method="POST" class="space-y-6">
+            <form action="https://formspree.io/f/xpqawyen" method="POST" class="space-y-6">
                 
+                <input type="hidden" name="_next" value="https://munirahmed2444-commits.github.io/Pakistan-Auto-Detailing/thank-you.html">
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-2">Full Name</label>
-                        <input type="text" name="name" required class="w-full px-5 py-4 rounded-2xl text-sm" placeholder="Ali Khan">
+                        <input type="text" name="name" required class="w-full px-5 py-4 rounded-2xl text-sm" placeholder="e.g. Hassan Ahmed">
                     </div>
                     <div>
-                        <label class="block text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-2">Phone Number</label>
-                        <input type="tel" name="phone" required class="w-full px-5 py-4 rounded-2xl text-sm" placeholder="0321-xxxxxxx">
+                        <label class="block text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-2">Contact Number</label>
+                        <input type="tel" name="phone" required class="w-full px-5 py-4 rounded-2xl text-sm" placeholder="03xx-xxxxxxx">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-2">Email Address</label>
-                    <input type="email" name="email" required class="w-full px-5 py-4 rounded-2xl text-sm" placeholder="name@email.com">
+                    <input type="email" name="email" required class="w-full px-5 py-4 rounded-2xl text-sm" placeholder="customer@email.com">
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-2">Vehicle Type</label>
-                        <select name="vehicle_type" class="w-full px-5 py-4 rounded-2xl text-sm cursor-pointer bg-zinc-900">
-                            <option value="Sedan">Sedan / Hatchback</option>
-                            <option value="SUV">SUV / Crossover</option>
-                            <option value="Truck">Truck / 4x4</option>
+                        <select name="vehicle_type" class="w-full px-5 py-4 rounded-2xl text-sm bg-zinc-900">
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV">SUV / Jeep</option>
+                            <option value="Hatchback">Hatchback</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-2">Service Needed</label>
-                        <select name="service" class="w-full px-5 py-4 rounded-2xl text-sm cursor-pointer bg-zinc-900">
+                        <label class="block text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-2">Service Required</label>
+                        <select name="service" class="w-full px-5 py-4 rounded-2xl text-sm bg-zinc-900">
                             <option value="PPF">Paint Protection Film (PPF)</option>
                             <option value="Ceramic">Ceramic Coating</option>
                             <option value="Detailing">Full Detailing</option>
@@ -75,15 +77,15 @@
 
                 <div>
                     <label class="block text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-2">Car Model & Year</label>
-                    <input type="text" name="car_details" required class="w-full px-5 py-4 rounded-2xl text-sm" placeholder="e.g. Honda Civic 2024">
+                    <input type="text" name="car_model" required class="w-full px-5 py-4 rounded-2xl text-sm" placeholder="e.g. 2024 Toyota Land Cruiser">
                 </div>
 
-                <button type="submit" class="w-full bg-red-600 hover:bg-white hover:text-black py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-xs transition-all duration-500 shadow-xl shadow-red-600/20 mt-4">
-                    Confirm Appointment
+                <button type="submit" class="w-full bg-red-600 hover:bg-white hover:text-black py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-xs transition-all duration-500 shadow-xl mt-4">
+                    Send Request
                 </button>
 
-                <p class="text-center text-[9px] text-zinc-600 uppercase tracking-widest mt-6">
-                    Lahore Studio | Maulana Shaukat Ali Road
+                <p class="text-center text-[9px] text-zinc-600 uppercase tracking-widest mt-6 italic">
+                    Lahore's Leading Detailing Studio since 2014
                 </p>
             </form>
         </div>
@@ -96,27 +98,19 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
 
-        const geometry = new THREE.IcosahedronGeometry(2, 1);
+        const geometry = new THREE.OctahedronGeometry(2.5, 1);
         const wireframe = new THREE.WireframeGeometry(geometry);
-        const material = new THREE.LineBasicMaterial({ color: 0xef4444, transparent: true, opacity: 0.1 });
-        const shield = new THREE.LineSegments(wireframe, material);
-        scene.add(shield);
+        const material = new THREE.LineBasicMaterial({ color: 0xef4444, transparent: true, opacity: 0.12 });
+        const object = new THREE.LineSegments(wireframe, material);
+        scene.add(object);
 
-        camera.position.z = 5;
-
+        camera.position.z = 6;
         function animate() {
             requestAnimationFrame(animate);
-            shield.rotation.y += 0.002;
-            shield.rotation.x += 0.001;
+            object.rotation.y += 0.003;
             renderer.render(scene, camera);
         }
         animate();
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
     </script>
 </body>
 </html>
