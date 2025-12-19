@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Pakistan Auto Detailing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        canvas { position: fixed; top: 0; left: 0; z-index: 1; pointer-events: none; }
+        .glass-nav { background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); z-index: 100; }
+        .service-card { background: rgba(15, 15, 15, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s ease; }
+        .service-card:hover { border-color: #ef4444; transform: translateY(-10px); }
+        .price-tag { color: #ef4444; font-weight: 900; }
+        .section-z { position: relative; z-index: 10; }
+    </style>
+</head>
+<body class="bg-black text-white font-sans overflow-x-hidden">
+
+    <nav class="flex justify-between items-center p-5 fixed w-full glass-nav">
+        <div class="flex items-center gap-3">
+            <a href="home.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center font-black italic text-white text-xl">PAD</div>
+                <div class="leading-none">
+                    <span class="block text-[10px] font-black uppercase tracking-widest text-zinc-400">Back to</span>
+                    <span class="block text-sm text-white uppercase font-bold">Home</span>
+                </div>
+            </a>
+        </div>
+        <a href="booking.html" class="bg-red-600 text-white px-6 py-2 rounded-full text-[10px] font-black uppercase hover:bg-white hover:text-black transition-all">Book Now</a>
+    </nav>
+
+    <section class="pt-40 pb-20 px-6 text-center section-z">
+        <h2 class="text-red-600 font-black uppercase tracking-[0.5em] text-[10px] mb-4">Protection Plans</h2>
+        <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter">Premium <span class="text-zinc-700">Services</span></h1>
+        <p class="text-zinc-500 mt-6 max-w-2xl mx-auto text-sm">Lahore's leading Paint Protection Film specialist and professional automotive detailing services since 2014.</p>
+    </section>
+
+    <section class="px-6 pb-32 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 section-z">
+        
+        <div class="service-card p-8 rounded-[2rem] lg:col-span-2">
+            <div class="flex justify-between items-start mb-6">
+                <div>
+                    <h3 class="text-2xl font-black uppercase">Paint Protection Film (PPF)</h3>
+                    <p class="text-zinc-500 text-xs mt-2 italic">Self-healing, 12-year life, and crystal clear finish.</p>
+                </div>
+                <i class="fas fa-shield-alt text-3xl text-red-600"></i>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-black/50 p-6 rounded-2xl border-l-4 border-red-600">
+                    <h4 class="font-black text-sm uppercase mb-2">ExoFilm Premium Collection</h4>
+                    <p class="text-xs text-zinc-400 mb-4">Highest grade TPU offering supreme clarity and gloss.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-[10px] uppercase font-bold text-zinc-500">Sedans / Hatchbacks</span>
+                        <span class="price-tag text-xl">PKR 325,000</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-zinc-900/50 p-5 rounded-2xl">
+                        <p class="text-[10px] font-black text-red-600 uppercase mb-1">Bronze Collection</p>
+                        <p class="text-xs text-zinc-500 mb-3">HOHO TPU High Quality</p>
+                        <p class="font-bold text-sm">From PKR 85,000</p>
+                    </div>
+                    <div class="bg-zinc-900/50 p-5 rounded-2xl">
+                        <p class="text-[10px] font-black text-red-600 uppercase mb-1">Platinum Collection</p>
+                        <p class="text-xs text-zinc-500 mb-3">KPAL TOP TIER USA</p>
+                        <p class="font-bold text-sm">From PKR 125,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-card p-8 rounded-[2rem]">
+            <i class="fas fa-car-clean text-3xl text-red-600 mb-6 block"></i>
+            <h3 class="text-2xl font-black uppercase mb-4">Auto Detailing</h3>
+            <ul class="text-xs text-zinc-400 space-y-3 mb-8">
+                <li><i class="fas fa-check text-red-600 mr-2"></i>Full Exterior Wash</li>
+                <li><i class="fas fa-check text-red-600 mr-2"></i>Interior Deep Clean</li>
+                <li><i class="fas fa-check text-red-600 mr-2"></i>Paint Correction</li>
+            </ul>
+            <p class="text-[10px] text-zinc-500 uppercase font-bold">Starting From</p>
+            <p class="price-tag text-2xl">PKR 15,000</p>
+        </div>
+
+        <div class="service-card p-8 rounded-[2rem]">
+            <i class="fas fa-gem text-3xl text-red-600 mb-6 block"></i>
+            <h3 class="text-2xl font-black uppercase mb-4">Ceramic Coating</h3>
+            <p class="text-xs text-zinc-500 mb-6 leading-relaxed">Long-lasting hydrophobic protection with premium ceramic coating.</p>
+            <div class="space-y-4">
+                <div class="flex justify-between text-xs">
+                    <span class="text-zinc-400 italic">Sedans</span>
+                    <span class="font-bold">PKR 25,000</span>
+                </div>
+                <div class="flex justify-between text-xs">
+                    <span class="text-zinc-400 italic">SUVs/Trucks</span>
+                    <span class="font-bold">PKR 35,000+</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-card p-8 rounded-[2rem]">
+            <i class="fas fa-windshield text-3xl text-red-600 mb-6 block"></i>
+            <h3 class="text-2xl font-black uppercase mb-4">Glass Coating</h3>
+            <p class="text-xs text-zinc-500 mb-6 leading-relaxed">Professional detailing combined with advanced glass coating technology.</p>
+            <div class="flex justify-between items-center border-t border-zinc-800 pt-4">
+                <span class="text-[10px] font-bold uppercase text-zinc-500">Pricing from</span>
+                <span class="price-tag text-xl">PKR 20,000</span>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // CREATE A 3D "CAR-LIKE" WIREFRAME (Using a Box & Cylinder Assembly)
+        const carGroup = new THREE.Group();
+
+        const bodyGeom = new THREE.BoxGeometry(4, 1, 2);
+        const bodyWire = new THREE.WireframeGeometry(bodyGeom);
+        const material = new THREE.LineBasicMaterial({ color: 0xef4444, transparent: true, opacity: 0.15 });
+        const carBody = new THREE.LineSegments(bodyWire, material);
+        carGroup.add(carBody);
+
+        const cabinGeom = new THREE.BoxGeometry(2, 0.8, 1.8);
+        const cabinWire = new THREE.WireframeGeometry(cabinGeom);
+        const carCabin = new THREE.LineSegments(cabinWire, material);
+        carCabin.position.y = 0.9;
+        carCabin.position.x = -0.3;
+        carGroup.add(carCabin);
+
+        scene.add(carGroup);
+        camera.position.z = 7;
+
+        let mouseX = 0; let mouseY = 0;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) - 0.5;
+            mouseY = (e.clientY / window.innerHeight) - 0.5;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            carGroup.rotation.y += 0.005;
+            carGroup.rotation.x = mouseY * 0.5;
+            carGroup.position.x = mouseX * 2;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
